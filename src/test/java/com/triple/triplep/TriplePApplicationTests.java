@@ -1,5 +1,6 @@
 package com.triple.triplep;
 
+import com.triple.triplep.repository.EventRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.UUID;
 class TriplePApplicationTests {
 
     @Autowired
-    eventRepository eventRepository;
+    EventRepository eventRepository;
 
     @Test
     public void save() throws Exception{
@@ -32,5 +33,17 @@ class TriplePApplicationTests {
                 "REVIEW", "ADD", "좋아요!");
         eventRepository.save(eventEntity);
     }
+
+    /*@Test
+    public void testFind(){
+        String userString = "3ede0ef2-92b7-4817-a5f3-0c575361f745";
+        UUID userUUID = UUID.fromString(userString);
+        String placeString = "2e4baf1c-5acb-4efb-a1af-eddada31b00f";
+        UUID placeUUID = UUID.fromString(placeString);
+        eventRepository.findByPlaceIdAndUserId(placeUUID, userUUID);
+    }*/
+
+
+
 
 }

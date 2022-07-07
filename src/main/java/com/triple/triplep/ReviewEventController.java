@@ -12,9 +12,9 @@ public class ReviewEventController {
 
     @Autowired
     private ReviewEventService reviewEventService;
-
+/*
     @PostMapping("")
     public void postReviewEvent(@RequestBody ReviewEventDto reviewEventDto){
         reviewEventService.
-    }
+    }*/
 }
