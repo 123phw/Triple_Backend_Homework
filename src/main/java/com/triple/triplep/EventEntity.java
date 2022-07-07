@@ -6,7 +6,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,8 +20,8 @@ public class EventEntity {
     @Column(nullable=false)
     private Long eventId;
     private UUID reviewId;
-    private UUID userID;
-    private UUID placeID;
+    private UUID userId;
+    private UUID placeId;
     @Column
     @ElementCollection
     private List<String> attachedPhotoIds;
@@ -37,13 +36,24 @@ public class EventEntity {
     @Column(columnDefinition = "int default '0'")
     private int point;
 
-    public EventEntity(UUID reviewId, UUID userID, UUID placeID, List<String> attachedPhotoIds, String type, String action, String content){
+    public EventEntity(UUID reviewId, UUID userId, UUID placeId, List<String> attachedPhotoIds, String type, String action, String content){
         this.reviewId = reviewId;
-        this.userID = userID;
-        this.placeID = placeID;
+        this.userId = userId;
+        this.placeId = placeId;
         this.attachedPhotoIds = attachedPhotoIds;
         this.type = type;
         this.action = action;
         this.content = content;
+    }
+
+    public void updateEvent(ReviewEventDto reviewEventDto){
+        this.type = reviewEventDto.getType();
+        this.attachedPhotoIds = reviewEventDto.getAttachedPhotoIds();
+        this.action = reviewEventDto.getAction();
+        this.content = reviewEventDto.getContent();
+    }
+
+    public void updatePoint(int point){
+        this.point= point;
     }
 }

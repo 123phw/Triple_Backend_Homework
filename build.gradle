@@ -2,7 +2,6 @@ plugins {
     id 'org.springframework.boot' version '2.7.1'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    //id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10' //프로젝트 빌드시 필요한 과정들을 포함한 task들이 내부로 실행됨
 }
 
 group = 'com.triple'
@@ -29,6 +28,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group :'org.postgresql', name: 'postgresql', version: '42.2.19'
 
     //QueryDSL JPA
     implementation 'com.querydsl:querydsl-jpa'

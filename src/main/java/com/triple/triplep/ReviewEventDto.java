@@ -1,6 +1,8 @@
 package com.triple.triplep;
 
+import com.triple.triplep.EventEntity;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.UUID;
 
 @Getter
 @AllArgsConstructor
+@Data
 public class ReviewEventDto {
 
     private UUID reviewId;
@@ -19,13 +22,13 @@ public class ReviewEventDto {
     private String content;
 
     public ReviewEventDto(EventEntity event){
-        this.reviewId = reviewId;
-        this.userID = userID;
-        this.placeID = placeID;
-        this.attachedPhotoIds = attachedPhotoIds;
-        this.type = type;
-        this.action = action;
-        this.content = content;
+        this.reviewId = event.getReviewId();
+        this.userID = event.getUserId();
+        this.placeID = event.getPlaceId();
+        this.attachedPhotoIds = event.getAttachedPhotoIds();
+        this.type = event.getType();
+        this.action = event.getAction();
+        this.content = event.getContent();
     }
 
 
