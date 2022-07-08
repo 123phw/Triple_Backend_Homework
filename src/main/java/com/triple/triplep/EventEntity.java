@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,7 +25,7 @@ public class EventEntity {
     private UUID placeId;
     @Column
     @ElementCollection
-    private List<String> attachedPhotoIds;
+    private List<String> attachedPhotoIds = new ArrayList<String>();
     @Column(length = 50)
     private String type;
     @Column(length = 50)

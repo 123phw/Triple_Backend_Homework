@@ -29,8 +29,17 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
     public EventEntity findFirstReview(UUID placeId){
         return queryFactory.selectFrom(eventEntity)
                 .where(eqPlaceId(placeId))
-                .orderBy(eventEntity.registration.asc())
+                .orderBy(eventEntity.registration.desc())
                 .fetchFirst();
+    }
+
+    @Override
+    public int totalPointByUserId(UUID userId){
+        return queryFactory
+                .select(eventEntity.point.sum())
+                .from(eventEntity)
+                .where(eqUserId(userId))
+                .fetchOne();
     }
 
     private BooleanExpression eqPlaceId(UUID placeId){

@@ -16,7 +16,7 @@ public class ReviewEventService {
 
     @Transactional
     public void postReviewEvent(ReviewEventDto reviewEventDto){
-        EventEntity event = eventRepository.findByPlaceAndUser(reviewEventDto.getPlaceID(), reviewEventDto.getUserID());
+        EventEntity event = eventRepository.findByPlaceAndUser(reviewEventDto.getPlaceId(), reviewEventDto.getUserId());
         int point=0;
         if(event != null){//DB에 동일 공원에 같은 사용자 리뷰가있다면 업데이트
             event.updateEvent(reviewEventDto);
@@ -24,8 +24,8 @@ public class ReviewEventService {
         else { //존재하지않는 리뷰라면 새로 등록
             event = new EventEntity(
                     reviewEventDto.getReviewId(),
-                    reviewEventDto.getUserID(),
-                    reviewEventDto.getPlaceID(),
+                    reviewEventDto.getUserId(),
+                    reviewEventDto.getPlaceId(),
                     reviewEventDto.getAttachedPhotoIds(),
                     reviewEventDto.getType(),
                     reviewEventDto.getAction(),
@@ -39,13 +39,16 @@ public class ReviewEventService {
         if(checkPhoto(reviewEventDto.getAttachedPhotoIds())){
             point++;
         }
-        EventEntity firstReview = eventRepository.findFirstReview(reviewEventDto.getPlaceID());
-        if(checkFirstReview(reviewEventDto.getUserID(), firstReview.getUserId())){
+        EventEntity firstReview = eventRepository.findFirstReview(reviewEventDto.getPlaceId());
+        if(checkFirstReview(reviewEventDto.getUserId(), firstReview.getUserId())){
             point++;
         }
         event.updatePoint(point); //포인트 업데이트
     }
 
+    public String getUserPoint(UUID userId){
+        return "사용자" + userId + "님의 포인트는 총" + eventRepository.totalPointByUserId(userId) + "P 입니다.";
+    }
 
     //리뷰길이가 1이상이면 true반환, 아니면 false반환
     private boolean checkContent(String content){
@@ -64,9 +67,10 @@ public class ReviewEventService {
         else return false;
     }
 
-    private boolean checkFirstReview(UUID userId, UUID firstUserId) {
+    private boolean checkFirstReview(UUID userId, UUID firstUserId) { //첫번째 리뷰인지 확인
         if (userId == firstUserId) {
             return true;
-        } else return false;
+        }
+        else return false;
     }
 }

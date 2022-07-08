@@ -10,4 +10,6 @@ public interface EventRepositoryCustom {
 
     public EventEntity findFirstReview(UUID placeId);
 
+    public int totalPointByUserId(UUID userId);
+
 }
