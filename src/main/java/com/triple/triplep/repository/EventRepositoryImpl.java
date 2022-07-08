@@ -3,9 +3,11 @@ package com.triple.triplep.repository;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.triple.triplep.EventEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 
+import java.util.List;
 import java.util.UUID;
 
 import static com.triple.triplep.QEventEntity.eventEntity;
@@ -27,9 +29,10 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
 
     @Override
     public EventEntity findFirstReview(UUID placeId){
+
         return queryFactory.selectFrom(eventEntity)
                 .where(eqPlaceId(placeId))
-                .orderBy(eventEntity.registration.desc())
+                .orderBy(eventEntity.registration.asc())
                 .fetchFirst();
     }
 

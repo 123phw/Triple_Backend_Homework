@@ -39,8 +39,8 @@ public class ReviewEventService {
         if(checkPhoto(reviewEventDto.getAttachedPhotoIds())){
             point++;
         }
-        EventEntity firstReview = eventRepository.findFirstReview(reviewEventDto.getPlaceId());
-        if(checkFirstReview(reviewEventDto.getUserId(), firstReview.getUserId())){
+        EventEntity firstReview = eventRepository.findTopByPlaceIdOrderByRegistrationAsc(reviewEventDto.getPlaceId());
+        if(reviewEventDto.getUserId().equals(firstReview.getUserId())){
             point++;
         }
         event.updatePoint(point); //포인트 업데이트
@@ -48,6 +48,12 @@ public class ReviewEventService {
 
     public String getUserPoint(UUID userId){
         return "사용자" + userId + "님의 포인트는 총" + eventRepository.totalPointByUserId(userId) + "P 입니다.";
+    }
+
+    public String getSortByTime(UUID placeId){
+        EventEntity sort = eventRepository.findTopByPlaceIdOrderByRegistrationAsc(placeId);
+
+        return sort.getUserId().toString();
     }
 
     //리뷰길이가 1이상이면 true반환, 아니면 false반환
