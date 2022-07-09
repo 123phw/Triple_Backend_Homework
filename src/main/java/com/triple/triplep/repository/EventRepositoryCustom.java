@@ -11,6 +11,4 @@ public interface EventRepositoryCustom {
 
     int totalPointByUserId(UUID userId);
 
-    //public EventEntity findFirstReview(UUID placeId);
-
 }

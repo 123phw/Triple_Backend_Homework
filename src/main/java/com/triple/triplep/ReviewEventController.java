@@ -22,9 +22,5 @@ public class ReviewEventController {
     public void postReviewEvent(@RequestBody ReviewEventDto reviewEventDto){
         reviewEventService.postReviewEvent(reviewEventDto);
     }
-/*
-    @GetMapping("/place/{placeId}")
-    public String getSortByTime(@PathVariable("placeId")UUID placeId){
-        return reviewEventService.getSortByTime(placeId);
-    }*/
+
 }

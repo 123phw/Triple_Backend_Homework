@@ -61,13 +61,6 @@ public class ReviewEventService {
         return "사용자" + userId + "님의 포인트는 총" + eventRepository.totalPointByUserId(userId) + "P 입니다.";
     }
 
-    /*
-    public String getSortByTime(UUID placeId){
-        EventEntity sort = eventRepository.findTopByPlaceIdOrderByRegistrationAsc(placeId);
-
-        return sort.getUserId().toString();
-    }*/
-
     //리뷰길이가 1이상이면 true반환, 아니면 false반환
     private boolean checkContent(String content){
         int contentLength = content.length();
@@ -84,11 +77,4 @@ public class ReviewEventService {
         }
         else return false;
     }
-/*
-    private boolean checkFirstReview(UUID userId, UUID firstUserId) { //첫번째 리뷰인지 확인
-        if (userId == firstUserId) {
-            return true;
-        }
-        else return false;
-    }*/
 }
