@@ -9,9 +9,8 @@ public interface EventRepositoryCustom {
 
     EventEntity findByPlaceAndUser(UUID placeId, UUID userId);
 
-    public EventEntity findFirstReview(UUID placeId);
+    int totalPointByUserId(UUID userId);
 
-    public int totalPointByUserId(UUID userId);
-
+    //public EventEntity findFirstReview(UUID placeId);
 
 }

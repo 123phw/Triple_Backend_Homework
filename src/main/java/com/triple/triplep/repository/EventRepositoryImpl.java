@@ -26,7 +26,7 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
                 .where(eqPlaceId(placeId), eqUserId(userId))
                 .fetchOne();
     }
-
+/*
     @Override
     public EventEntity findFirstReview(UUID placeId){
 
@@ -34,7 +34,7 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
                 .where(eqPlaceId(placeId))
                 .orderBy(eventEntity.registration.asc())
                 .fetchFirst();
-    }
+    }*/
 
     @Override
     public int totalPointByUserId(UUID userId){

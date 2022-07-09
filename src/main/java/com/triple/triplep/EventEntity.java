@@ -36,6 +36,9 @@ public class EventEntity {
     private Timestamp registration;
     @Column(columnDefinition = "int default '0'")
     private int point;
+    @Column
+    @ElementCollection
+    private List<Integer> pointDifference = new ArrayList<Integer>();
 
     public EventEntity(UUID reviewId, UUID userId, UUID placeId, List<String> attachedPhotoIds, String type, String action, String content){
         this.reviewId = reviewId;
@@ -57,4 +60,6 @@ public class EventEntity {
     public void updatePoint(int point){
         this.point= point;
     }
+
+    public void addEventDiff(int point)  { this.pointDifference.add(point); }
 }
