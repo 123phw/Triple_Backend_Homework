@@ -22,5 +22,4 @@ public class ReviewEventController {
     public void postReviewEvent(@RequestBody ReviewEventDto reviewEventDto){
         reviewEventService.postReviewEvent(reviewEventDto);
     }
-
 }
