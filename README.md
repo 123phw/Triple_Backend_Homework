@@ -87,12 +87,14 @@
 3. 발생 오류 : The dependencies of some of the beans in the application context form a cycle - 양방향 의존관계 오류
 <br/>해결 : ReviewEventService와 EventRepositoryImpl에 동시에 @Autowire을 이용해 EventRepository를 선언했기때문에 발생된 오류라고 생각해 EventRepositoryImpl에 선언된 EventRepository를 제거하였습니다.
 
-### 보완해야할 점
+### 추가 및 보완 했으면 좋았을 기능
 
-* 포인트 변경에 따른 회원 등급 변화 기능
-* 사용자 포인트 총 점 조회 시, 등급 상승을 위한 최소 필요 포인트도 명시하면 좋을 것 같음
-* Delete method를 구현하지 못함
-
+* 포인트 변경에 따른 기능
+  * 포인트 변경 시, 등급 변화가 있다면 표시하는 기능 
+  * 사용자 포인트 총 점 조회 시, 등급 상승을 위한 최소 필요 포인트도 명시하면 좋을 것 같음
+* DELETE 메서드 
+  * POST 메서드를 통해 수정이 가능하지만 삭제 기능을 구현하지 못하여, DELETE 메서드를 통해 작성한 리뷰를 삭제하게 됐을 때 발생하는 이벤트를 구현했다면 더 좋았을 것 같음
+ 
 ### 프로젝트 구조
 ```bash
 tripeP
