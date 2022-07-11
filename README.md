@@ -88,15 +88,6 @@
 ##### 포인트 변경에 따른 회원 등급 변화 기능
 ##### 사용자 포인트 총 점 조회 시, 등급 상승을 위한 최소 필요 포인트도 명시하면 좋을 것 같음
 ##### Delete method를 구현하지 못함
-➜ tree triple-club-mileage-service -L 2 -C
-triple-club-mileage-service
-├── LICENSE
-├── README.md                      --->  과제 설명
-├── pseudo                         --->  pseduo code dir
-│   ├── Class.pseudo               --->  class, enum
-│   ├── EventController.pseudo     --->  리뷰 이벤트 API 컨트롤러
-│   ├── PointTransactionController --->  포인트 트랜잭션 API 컨트롤러
-│   ├── PointTransactionService    --->  포인트 트랜잭션 서비스 
-│   └── ReviewEventService.pseudo  --->  리뷰 이벤트 서비스
-└── schema.sql                     --->  DDL SQL 
+
+### 구조
 
