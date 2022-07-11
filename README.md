@@ -90,4 +90,22 @@
 ##### Delete method를 구현하지 못함
 
 ### 구조
-
+```bash
+tripeP
+├── src
+│    ├── main
+│    │    ├── java/com/triple/triplep
+│    │    │    ├── repository         
+│    │    │    │    ├── EventRepository
+│    │    │    │    ├── EventRepositoryCustom
+│    │    │    │    └── EventRepositoryImpl
+│    │    │    ├── EventEntity
+│    │    │    ├── ReviewEventController
+│    │    │    ├── ReviewEventDto
+│    │    │    └── ReviewEventService
+│    │    └── resources
+│    │         └── application.properties
+│    └── test/java/com/triple/triplep
+│         └── TriplePApplicationTests
+└── build.gradle
+```
