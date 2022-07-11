@@ -4,8 +4,8 @@
 ##### 트리플 사용자들이 장소에 리뷰를 작성할 때 포인트를 부여하고, 전체/개인에 대한 포인트 부여 히스토리와 개인별 누적 포인트를 관리하고자 합니다.
 ##### 한 사용자는 장소마다 리뷰 1개만 작성할 수 있고, 리뷰 수정 또는 삭제할 수 있습니다.
   ##### 내용 점수
-     1자 이상 텍스트 작성 : 1점
-     1자 이상 사진 첨부 : 1점
+   #####1자 이상 텍스트 작성 : 1점
+   #####1자 이상 사진 첨부 : 1점
   ##### 보너스 점수
      특정 장소에 첫 리뷰 작성 : 1점
 ##### 포인트 부여 조건을 확인하여 POST /events로 호출하는 포인트 적립 API 구현 및 포인트 조회 API 구현
@@ -80,6 +80,8 @@
     String placeString = "2e4baf1c-5acb-4efb-a1af-eddada31b00f";
     UUID placeUUID = UUID.fromString(placeString);
   
+발생 오류 : The dependencies of some of the beans in the application context form a cycle - 양방향 의존관계 오류
+해결 : ReviewEventService와 EventRepositoryImpl에 동시에 @Autowire을 이용해 EventRepository를 선언했기때문에 발생된 오류라고 생각해 EventRepositoryImpl에 선언된 EventRepository를 제거하였습니다.
 
 ### 보완해야할 점
 
