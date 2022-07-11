@@ -102,14 +102,14 @@ tripeP
 ├── src
 │    ├── main
 │    │    ├── java/com/triple/triplep
-│    │    │    ├── repository                  ->리뷰 이벤트 레파지토리
+│    │    │    ├── repository                  ----- 리뷰 이벤트 레파지토리
 │    │    │    │    ├── EventRepository        
 │    │    │    │    ├── EventRepositoryCustom
-│    │    │    │    └── EventRepositoryImpl
-│    │    │    ├── EventEntity                 -> 리뷰 이벤트 entity
-│    │    │    ├── ReviewEventController       -> 리뷰 이벤트 api 컨트롤러
-│    │    │    ├── ReviewEventDto              -> 리뷰 이벤트 dto
-│    │    │    └── ReviewEventService          -> 리뷰 이벤트 서비스
+│    │    │    │    └── EventRepositoryImpl    ----- 리뷰 이벤트 querydsl
+│    │    │    ├── EventEntity                 ----- 리뷰 이벤트 entity
+│    │    │    ├── ReviewEventController       ----- 리뷰 이벤트 api 컨트롤러
+│    │    │    ├── ReviewEventDto              ----- 리뷰 이벤트 dto
+│    │    │    └── ReviewEventService          ----- 리뷰 이벤트 서비스
 │    │    └── resources
 │    │         └── application.properties
 │    └── test/java/com/triple/triplep
