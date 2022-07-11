@@ -8,7 +8,7 @@
     * 1자 이상 사진 첨부 : 1점
   * 보너스 점수
     * 특정 장소에 첫 리뷰 작성 : 1점
-##### 포인트 부여 조건을 확인하여 POST /events로 호출하는 포인트 적립 API 구현 및 포인트 조회 API 구현
+* 포인트 부여 조건을 확인하여 POST /events로 호출하는 포인트 적립 API 구현 및 포인트 조회 API 구현
      
      
 ### 참고사항
@@ -67,8 +67,7 @@
 
 
 ### 오류
-1.
-<img width="406" alt="image" src="https://user-images.githubusercontent.com/81297436/178132309-2d1d8fd7-7f20-4acd-af51-f2a4c0638315.png">
+1. <img width="406" alt="image" src="https://user-images.githubusercontent.com/81297436/178132309-2d1d8fd7-7f20-4acd-af51-f2a4c0638315.png">
 발생 오류 : Could not autowire. No beans of 'JPAQueryFactory' type found.
 해결 : 패키지 내에서 @Configuration을 사용하여 인식을 시켜주려했지만 해당방법으로 해결이 되지 않아 아래와 같이 코드를 변경하였습니다.
       
@@ -78,15 +77,13 @@
         this.queryFactory = new JPAQueryFactory(entityManager);
     }
    
-2.   
-발생 오류 : Database에 데이터 삽입 테스트 코드 작성시, 직접 작성한 UUID값은 String타입으로 인식이되었습니다.
+2. 발생 오류 : Database에 데이터 삽입 테스트 코드 작성시, 직접 작성한 UUID값은 String타입으로 인식이되었습니다.
 해결 : 아래 코드와 같이 .fromString 메서드를 이용하여 String타입의 데이터를 UUID타입으로 변환하여 저장한 후 데이터 삽입하였습니다.
         
     String placeString = "2e4baf1c-5acb-4efb-a1af-eddada31b00f";
     UUID placeUUID = UUID.fromString(placeString);
   
-3.  
-발생 오류 : The dependencies of some of the beans in the application context form a cycle - 양방향 의존관계 오류
+3. 발생 오류 : The dependencies of some of the beans in the application context form a cycle - 양방향 의존관계 오류
 <br/>해결 : ReviewEventService와 EventRepositoryImpl에 동시에 @Autowire을 이용해 EventRepository를 선언했기때문에 발생된 오류라고 생각해 EventRepositoryImpl에 선언된 EventRepository를 제거하였습니다.
 
 ### 보완해야할 점
