@@ -58,6 +58,7 @@
 ```
 
 ### 스키마
+<img width="514" alt="image" src="https://user-images.githubusercontent.com/81297436/178210001-ba0fab6a-9cbf-45fc-bbd4-4c46395dca13.png">
 
 ### API기획서
 |**기능**|**Method**|**End Point**|**Request Body**|**Response Body**|**StatusCode & exception**|
