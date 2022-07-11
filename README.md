@@ -57,7 +57,7 @@
     );
 ```
 
-### 스키마
+### Schema
 <img width="635" alt="image" src="https://user-images.githubusercontent.com/81297436/178254447-a2fde068-a718-436d-8106-786771869920.png">
 <img width="717" alt="image" src="https://user-images.githubusercontent.com/81297436/178253166-91a9d59d-2aca-4a27-b731-b2699ebda14f.png">
 <img width="670" alt="image" src="https://user-images.githubusercontent.com/81297436/178253458-b0e48f36-1bde-40b8-81d3-4723be3a5c55.png">
