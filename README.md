@@ -11,7 +11,7 @@
 * 포인트 부여 조건을 확인하여 POST /events로 호출하는 포인트 적립 API 구현 및 포인트 조회 API 구현
      
      
-### 참고사항
+## 참고사항
 * 포인트 증감 시 이력이 남아야 합니다.
 * 사용자마다 현재 시점의 포인트 총점을 조회 및 계산이 가능해야 합니다.
 * 포인트 부여 API 구현에 필요한 SQL 수행 시, 전체 테이블 스캔이 일어나지 않는 인덱스가 필요합니다.
@@ -19,7 +19,7 @@
 * 사용자 입장에서 본 '첫 리뷰'일 때 보너스 점수를 부여합니다.
 
 
-### DDL
+## DDL
   * Table : event
   ```
     create table event
@@ -57,20 +57,20 @@
     );
 ```
 
-### Schema
+## Schema
 <img width="635" alt="image" src="https://user-images.githubusercontent.com/81297436/178254447-a2fde068-a718-436d-8106-786771869920.png">
 <img width="717" alt="image" src="https://user-images.githubusercontent.com/81297436/178253166-91a9d59d-2aca-4a27-b731-b2699ebda14f.png">
 <img width="670" alt="image" src="https://user-images.githubusercontent.com/81297436/178253458-b0e48f36-1bde-40b8-81d3-4723be3a5c55.png">
 
 
-### API기획서
+## API기획서
 |**기능**|**Method**|**End Point**|**Request Body**|**Response Body**|**StatusCode & exception**|
 |---|---|---|---|---|---|
 |리뷰 이벤트 생성 및 포인트 적립|POST|/event|{<br/>"type": "REVIEW",<br/>"action": "ADD",<br/>"reviewId": "240a0658-dc5f-4878-9381-ebb7b2667772",<br/>"content": "좋아요!",<br/>"attachedPhotoIds": [e4d1a64e-a531-46de-88d0-ff0ed70c0bb8", "afb0cef2-851d-4a50-bb07-9cc15cbdc332”],<br/>"userId": "3ede0ef2-92b7-4817-a5f3-0c575361f745",    <br/>"placeId":"2e4baf1c-5acb-4efb-a1af-eddada31b00f"  }||OK(200): 저장 성공<br/>Not Found(404): 해당하는 리소스가 없는 경우|
 |포인트 정보|GET|/{userId}|||OK(200): 성공<br/>Unauthorized(401) : 헤더에 token이 없을 경우<br/>Not Found(404):  token의 UID에 해당하는 리소스가 없는 경우|
 
 
-### 오류
+## 오류
 1. <img width="406" alt="image" src="https://user-images.githubusercontent.com/81297436/178132309-2d1d8fd7-7f20-4acd-af51-f2a4c0638315.png">
 발생 오류 : Could not autowire. No beans of 'JPAQueryFactory' type found.
 해결 : 패키지 내에서 @Configuration을 사용하여 인식을 시켜주려했지만 해당방법으로 해결이 되지 않아 아래와 같이 코드를 변경하였습니다.
@@ -94,7 +94,7 @@
 3. 발생 오류 : The dependencies of some of the beans in the application context form a cycle - 양방향 의존관계 오류
 <br/>해결 : ReviewEventService와 EventRepositoryImpl에 동시에 @Autowire을 이용해 EventRepository를 선언했기때문에 발생된 오류라고 생각해 EventRepositoryImpl에 선언된 EventRepository를 제거하였습니다.
 
-### 추가 및 보완 했으면 좋았을 기능
+## 추가 및 보완 했으면 좋았을 기능
 
 * 포인트 변경에 따른 기능
   * 포인트 변경 시, 등급 변화가 있다면 표시하는 기능 
@@ -103,7 +103,7 @@
   * POST 메서드를 통해 수정이 가능하지만 삭제 기능을 구현하지 못하여, DELETE 메서드를 통해 작성한 리뷰를 삭제하게 됐을 때 발생하는 이벤트를 구현했다면 더 좋았을 것 같다.
 
  
-### 프로젝트 구조
+## 프로젝트 구조
 ```bash
 tripeP
 ├── src
