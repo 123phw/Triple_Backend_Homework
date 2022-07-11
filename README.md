@@ -72,13 +72,13 @@
 발생 오류 : Could not autowire. No beans of 'JPAQueryFactory' type found.
 해결 : 패키지 내에서 @Configuration을 사용하여 인식을 시켜주려했지만 해당방법으로 해결이 되지 않아 아래와 같이 코드를 변경하였습니다.
       
-      ```
+    
     private final JPAQueryFactory queryFactory;
 
     public EventRepositoryImpl(EntityManager entityManager){
         this.queryFactory = new JPAQueryFactory(entityManager);
     }
-    ```
+    
    
 2. 발생 오류 : Database에 데이터 삽입 테스트 코드 작성시, 직접 작성한 UUID값은 String타입으로 인식이되었습니다.
 해결 : 아래 코드와 같이 .fromString 메서드를 이용하여 String타입의 데이터를 UUID타입으로 변환하여 저장한 후 데이터 삽입하였습니다.
